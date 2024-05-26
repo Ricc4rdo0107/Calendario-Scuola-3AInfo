@@ -80,11 +80,12 @@ if __name__ == "__main__":
             ms, giorno, mese, anno = nextMonth(giorno, mese, anno)
             print(ms)
             sleep(0.5)
+            print("Premere + per andare avanti, - per andare indietro o Q per uscire")
         elif key == "-":
             ms, giorno, mese, anno = previousMonth(giorno, mese, anno)
             print(ms)
             sleep(0.5)
+            print("Premere + per andare avanti, - per andare indietro o Q per uscire")
         elif key == "q":
             print("Programma terminato.")
             break
-        print("Premere + per andare avanti, - per andare indietro o Q per uscire")
