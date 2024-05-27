@@ -11,7 +11,7 @@ def isBisestile(anno):
     return (anno % 400 == 0) or (anno % 4 == 0 and not (anno % 100 == 0))
 
 def printMese(giorno, mese, anno):
-    mesiTable["feb"] = 29 if isBisestile(anno) else 28
+    mesiTable["feb"] = 28 if not isBisestile(anno) else 29
     meseString = ""
     meseString += f"{mese+' '+str(anno):^20}\n"    #centra la parola "mese" tra 20 caratteri
     meseString += " L  M  M  G  V  S  D\n"
@@ -25,7 +25,7 @@ def printMese(giorno, mese, anno):
         meseString += f"{g} "
         if (i + 1 + spaces) % 7 == 0:
             meseString += "\n"
-    return meseString
+    return f"\n{meseString}\n"
 
 
 def nextMonth(giorno, mese, anno):
@@ -41,7 +41,6 @@ def nextMonth(giorno, mese, anno):
     return printMese(giorno, mese, anno), giorno, mese, anno
 
 def previousMonth(giorno, mese, anno):
-    tmpmese = mese
     if mese[:3] == "gen":
         anno -= 1
         mese = "dic"
@@ -68,24 +67,43 @@ if __name__ == "__main__":
 
     anno = int(input("Anno:   "))
 
+    instructions = "\nPremere + per andare avanti, - per andare indietro\n"\
+                   "* per avanzare di un anno, / per tornare indietro di un anno.\n"\
+                   "o Q per uscire\n"
+    print(instructions)
+
     meseString = printMese(giorno=giorno, mese=mese, anno=anno)
     print(meseString)
-
-    print("Premere + per andare avanti, - per andare indietro o Q per uscire")
-
-    
     while True:
         key = keyboard.read_key()
         if key == "+":
             ms, giorno, mese, anno = nextMonth(giorno, mese, anno)
             print(ms)
+            #print(instructions)
             sleep(0.5)
-            print("Premere + per andare avanti, - per andare indietro o Q per uscire")
+
         elif key == "-":
             ms, giorno, mese, anno = previousMonth(giorno, mese, anno)
             print(ms)
+            #print(instructions)
             sleep(0.5)
-            print("Premere + per andare avanti, - per andare indietro o Q per uscire")
+
+        ##TODO FARE IL CALCOLO DEI GIORNI DELL'ANNO PROSSIMO
+        elif key == "*":
+            anno+=1
+            ms = printMese(giorno, mese, anno)
+            print(ms)
+            #print(instructions)
+            sleep(0.5)
+
+        ##TODO FARE IL CALCOLO DEI GIORNI DELL'ANNO PRECEDENTE
+        elif key == "/":
+            anno-=1
+            ms = printMese(giorno, mese, anno)
+            print(ms)
+            #print(instructions)
+            sleep(0.5)
+
         elif key == "q":
             print("Programma terminato.")
             break
