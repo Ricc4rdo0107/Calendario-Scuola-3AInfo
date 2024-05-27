@@ -88,17 +88,17 @@ if __name__ == "__main__":
             #print(instructions)
             sleep(0.5)
 
-        ##TODO FARE IL CALCOLO DEI GIORNI DELL'ANNO PROSSIMO
         elif key == "*":
             anno+=1
+            giorno = giorni[(giorni.index(giorno) + 365) % len(giorni)]
             ms = printMese(giorno, mese, anno)
             print(ms)
             #print(instructions)
             sleep(0.5)
 
-        ##TODO FARE IL CALCOLO DEI GIORNI DELL'ANNO PRECEDENTE
         elif key == "/":
             anno-=1
+            giorno = giorni[(giorni.index(giorno) - 365 % 7) % 7]
             ms = printMese(giorno, mese, anno)
             print(ms)
             #print(instructions)
