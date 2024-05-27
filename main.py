@@ -11,7 +11,7 @@ def isBisestile(anno):
     return (anno % 400 == 0) or (anno % 4 == 0 and not (anno % 100 == 0))
 
 def printMese(giorno, mese, anno):
-    mesiTable["feb"] = 28 if not isBisestile(anno) else 29
+    mesiTable["feb"] = 29 if isBisestile(anno) else 28
     meseString = ""
     meseString += f"{mese+' '+str(anno):^20}\n"    #centra la parola "mese" tra 20 caratteri
     meseString += " L  M  M  G  V  S  D\n"
