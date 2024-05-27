@@ -54,7 +54,7 @@ def previousMonth(giorno, mese, anno):
 
     return printMese(giorno, mese, anno), giorno, mese, anno
 
-# MAIN
+# MAIN - Calendario - Riccardo Zappitelli - 3A Informatica - IIS Emilio Alessandrini
 if __name__ == "__main__":
     giorno = input("Giorno: ").lower()[:3]
     while not (giorno in giorni):
