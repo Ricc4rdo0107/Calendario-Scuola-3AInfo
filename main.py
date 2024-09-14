@@ -1,4 +1,5 @@
-import keyboard
+import os
+simport keyboard
 from time import sleep
 
 giorni = ["lun", "mar", "mer", "gio", "ven", "sab", "dom"]
@@ -6,6 +7,9 @@ mesi   = ["gen", "feb", "mar", "apr", "mag", "giu", "lug", "ago", "set", "ott", 
 mesiTable = {
     "gen":31, "feb":None, "mar":31, "apr":30, "mag":31, "giu":30, "lug":31, "ago":31, "set":30, "ott":31, "nov":30, "dic":31
 }
+
+def clear():
+    os.system("cls||clear")
 
 def isBisestile(anno):
     return (anno % 400 == 0) or (anno % 4 == 0 and not (anno % 100 == 0))
