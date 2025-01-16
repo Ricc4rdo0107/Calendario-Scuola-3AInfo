@@ -1,5 +1,5 @@
 import os
-simport keyboard
+import keyboard
 from time import sleep
 
 giorni = ["lun", "mar", "mer", "gio", "ven", "sab", "dom"]
